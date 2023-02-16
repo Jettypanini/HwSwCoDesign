@@ -1,8 +1,0 @@
-*.hex
-*.elf
-*.objdump
-*.map
-*.o
-!**build/.gitkeep
-
-3_soc/firmware/simulation_output.txt
