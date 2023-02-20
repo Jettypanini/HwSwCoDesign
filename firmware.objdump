@@ -40,7 +40,7 @@ Disassembly of section .memory:
   80:	00100073          	ebreak
 
 00000084 <hwswcd_hd>:
-  84:	02b50533          	mul	a0,a0,a1
+  84:	02b54533          	div	a0,a0,a1
   88:	00008067          	ret
 
 0000008c <print_chr>:
