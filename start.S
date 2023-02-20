@@ -1,5 +1,6 @@
   .section .init
   .global main
+  .global hwswcd_hd
 
 start:
   /* zero-initialize all registers */
@@ -35,12 +36,16 @@ start:
   addi x30, zero, 0
   addi x31, zero, 0
 
-  /* set stack pointer */
-  lui sp, %hi(16*1024)
+/* set stack pointer /
+  lui sp, %hi(161024)
   addi sp, sp, %lo(16*1024)
 
-  /* call main */
+/* call main */
   jal ra, main
 
-  /* break - trap */
+/* break - trap */
   ebreak
+
+hwswcd_hd:
+  mul a0, a0, a1
+  ret
