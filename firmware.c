@@ -1,6 +1,5 @@
 #include "print.h"
-
-extern unsigned int average(unsigned int value1, unsigned int value2);
+#include "average.h"
 
 void main(void) {
     volatile unsigned int value1, value2, avg;
