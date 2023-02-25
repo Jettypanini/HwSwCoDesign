@@ -1,6 +1,6 @@
   .section .init
   .global main
-  .global hwswcd_hd
+  .global average
 
 start:
   /* zero-initialize all registers */
@@ -46,6 +46,6 @@ start:
 /* break - trap */
   ebreak
 
-hwswcd_hd:
-  mul a0, a0, a1
+average:
+  div a0, a0, a1
   ret

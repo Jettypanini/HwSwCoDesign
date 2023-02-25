@@ -1,20 +1,33 @@
 #include "print.h"
 
-extern unsigned int hwswcd_hd(unsigned int value1, unsigned int value2);
+extern unsigned int average(unsigned int value1, unsigned int value2);
 
 void main(void) {
-    volatile unsigned int value1, value2, hd;
+    volatile unsigned int value1, value2, avg;
 
-    value1 = 5;
-    value2 = 9;
+    value1 = 32;
+    value2 = 16;
 
-    hd = hwswcd_hd(value1, value2);
+    avg = average(value1, value2);
 
-    print_str("HD(0x");
-    print_hex(value1, 2);
+    print_str("avg(0x");
+    print_hex(value1, 6);
     print_str(", ");
-    print_hex(value2, 2);
+    print_hex(value2, 5);
     print_str(") = 0x");
-    print_hex(hd, 5);
+    print_hex(avg, 5);
+    print_str(".");
+
+    value1 = 3;
+    value2 = 4;
+
+    avg = average(value1, value2);
+
+    print_str("avg(0x");
+    print_hex(value1, 4);
+    print_str(", ");
+    print_hex(value2, 4);
+    print_str(") = 0x");
+    print_hex(avg, 4);
     print_str(".");
 }
