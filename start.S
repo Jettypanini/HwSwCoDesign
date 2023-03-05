@@ -1,6 +1,5 @@
   .section .init
   .global main
-  .global average
 
 start:
   /* zero-initialize all registers */
@@ -45,7 +44,3 @@ start:
 
 /* break - trap */
   ebreak
-
-average:
-  div a0, a0, a1
-  ret
