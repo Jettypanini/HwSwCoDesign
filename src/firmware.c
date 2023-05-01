@@ -1,6 +1,10 @@
 #include "print.h"
 #include "ascon.h"
 
+// The cross compiler gives an error when you try to execute the code with call-by-reference, because memcpy does not exist.
+// By writing the function, it can be used.
+void *memcpy(void *dest, const void *src, size_t n);
+
 void main(void) {
 
     uint8_t len1 = 6;
@@ -34,4 +38,12 @@ void main(void) {
     print_str(") = 0x");
     print_str(".");
 
+}
+
+void *memcpy(void *dest, const void *src, size_t n)
+{
+    for (size_t i = 0; i < n; i++)
+    {
+        ((char*)dest)[i] = ((char*)src)[i];
+    }
 }
