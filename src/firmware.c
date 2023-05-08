@@ -1,5 +1,5 @@
 #include "print.h"
-#include "ascon.h"
+//#include "ascon.h"
 
 // The cross compiler gives an error when you try to execute the code with call-by-reference, because memcpy does not exist.
 // By writing the function, it can be used.
