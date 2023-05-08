@@ -3,7 +3,7 @@
 
 // The cross compiler gives an error when you try to execute the code with call-by-reference, because memcpy does not exist.
 // By writing the function, it can be used.
-void memcpy(void *dest, const void *src, int n);
+//void memcpy(void *dest, const void *src, int n);
 
 void main(void) {
 
@@ -43,10 +43,10 @@ void main(void) {
 
 }
 
-void memcpy(void *dest, const void *src, int n)
+/*void memcpy(void *dest, const void *src, int n)
 {
     for (int i = 0; i < n; i++)
     {
         ((char*)dest)[i] = ((char*)src)[i];
     }
-}
+}*/
