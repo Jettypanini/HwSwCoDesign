@@ -36,7 +36,7 @@ start:
   addi x31, zero, 0
 
 /* set stack pointer /
-  lui sp, %hi(161024)
+  lui sp, %hi(16*1024)
   addi sp, sp, %lo(16*1024)
 
 /* call main */
