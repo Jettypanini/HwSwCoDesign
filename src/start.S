@@ -35,7 +35,7 @@ start:
   addi x30, zero, 0
   addi x31, zero, 0
 
-/* set stack pointer /
+/* set stack pointer */
   lui sp, %hi(128*1024) >> 12
   addi sp, sp, %lo(128*1024) >> 12
 
