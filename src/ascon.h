@@ -6,18 +6,24 @@
 #ifndef ASCON_ASCON_H
 #define ASCON_ASCON_H
 
-#define U32TOWORD(x)                                           \
-  (((0x000000FF & (x)) << 24) | ((0x0000FF00 & (x)) << 8) | \
-   ((0x00FF0000 & (x)) >> 8) | ((0xFF000000 & (x)) >> 24))
+#define U64TOWORD(x)                          \
+  (((0x00000000000000FFULL & (x)) << 56) | \
+   ((0x000000000000FF00ULL & (x)) << 40) | \
+   ((0x0000000000FF0000ULL & (x)) << 24) | \
+   ((0x00000000FF000000ULL & (x)) << 8) |  \
+   ((0x000000FF00000000ULL & (x)) >> 8) |  \
+   ((0x0000FF0000000000ULL & (x)) >> 24) | \
+   ((0x00FF000000000000ULL & (x)) >> 40) | \
+   ((0xFF00000000000000ULL & (x)) >> 56))
 
-uint32_t MASK(int n) {
+uint64_t MASK(int n) {
   /* undefined for n == 0 */
-  return ~0ull >> (32 - 8 * n);
+  return ~0ull >> (64 - 8 * n);
 }
 
-uint32_t LOAD(const uint8_t* bytes, int n) {
-  uint64_t x = *(uint32_t*)bytes & MASK(n);
-  return U32TOWORD(x);
+uint64_t LOAD(const uint8_t* bytes, int n) {
+  uint64_t x = *(uint64_t*)bytes & MASK(n);
+  return U64TOWORD(x);
 }
 
 void ascon_hash(uint32_t * digest, uint32_t * message, uint8_t mlen);
