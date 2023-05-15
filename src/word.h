@@ -37,3 +37,5 @@ uint64_t LOADBYTES(const uint8_t* bytes, int n) {
   memcpy(&x, bytes, n);
   return U64TOWORD(x);
 }
+
+#endif
