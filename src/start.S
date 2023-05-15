@@ -37,7 +37,7 @@ start:
 
 /* set stack pointer */
   lui sp, %hi(16777215) /* 0xFFFFFF */
-  addi sp, sp, %lo(128*1024) >> 10 /* 0x80 */
+  addi sp, sp, %lo(16777215) /* 0xFFFFFF */
 
 /* call main */
   jal ra, main
