@@ -10,13 +10,13 @@
   (((0x000000FF & (x)) << 24) | ((0x0000FF00 & (x)) << 8) | \
    ((0x00FF0000 & (x)) >> 8) | ((0xFF000000 & (x)) >> 24))
 
-uint32_t mask(int n) {
+uint32_t MASK(int n) {
   /* undefined for n == 0 */
   return ~0ull >> (32 - 8 * n);
 }
 
-uint32_t load(const uint8_t* bytes, int n) {
-  uint64_t x = *(uint32_t*)bytes & mask(n);
+uint32_t LOAD(const uint8_t* bytes, int n) {
+  uint64_t x = *(uint32_t*)bytes & MASK(n);
   return U32TOWORD(x);
 }
 
