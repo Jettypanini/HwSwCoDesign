@@ -6,6 +6,14 @@
 #ifndef ASCON_ASCON_H
 #define ASCON_ASCON_H
 
+void *memcpy(void *dest, const void *src, size_t n)
+{
+    for (size_t i = 0; i < n; i++)
+    {
+        ((char*)dest)[i] = ((char*)src)[i];
+    }
+}
+
 #define U64TOWORD(x)                          \
   (((0x00000000000000FFULL & (x)) << 56) | \
    ((0x000000000000FF00ULL & (x)) << 40) | \
@@ -28,7 +36,7 @@ uint64_t LOAD(const uint8_t* bytes, int n) {
 
 uint64_t LOADBYTES(const uint8_t* bytes, int n) {
   uint64_t x = 0;
-  x = LOAD(bytes, n);
+  memcpy(&x, bytes, n);
   return U64TOWORD(x);
 }
 
