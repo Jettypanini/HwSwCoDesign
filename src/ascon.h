@@ -26,6 +26,12 @@ uint64_t LOAD(const uint8_t* bytes, int n) {
   return U64TOWORD(x);
 }
 
+uint64_t LOADBYTES(const uint8_t* bytes, int n) {
+  uint64_t x = 0;
+  x = LOAD(bytes, n);
+  return U64TOWORD(x);
+}
+
 void ascon_hash(uint32_t * digest, uint32_t * message, uint8_t mlen);
 
 void permutation(uint32_t * state, uint8_t round_number);

@@ -10,8 +10,8 @@ const uint8_t sbox[32] = {0x04, 0x0b, 0x1f, 0x14, 0x1a, 0x15, 0x09, 0x02, 0x1b, 
 
 void ascon_hash(uint32_t * digest, uint32_t * message, uint8_t mlen) {
     for (int i = 0; i<4; i++) {
-        digest[i*2] = LOAD(message[i*2], 32);
-        digest[(i*2)+1] = LOAD(message[(i*2)+1], 32);
+        digest[i*2] = LOADBYTES(message[i*2], 32);
+        digest[(i*2)+1] = LOADBYTES(message[(i*2)+1], 32);
     }
 }
 
