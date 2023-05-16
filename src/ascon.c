@@ -3,6 +3,7 @@
 void ascon_hash(uint32_t * digest, uint32_t * message, uint8_t mlen) {
 
     ASCON_init(mlen);
+    ASCON_deinit();
 
     for (uint8_t i = 0; i < mlen; i++) {
         ASCON_message(message[i]);
