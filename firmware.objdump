@@ -36,7 +36,7 @@ Disassembly of section .memory:
   70:	00000e93          	li	t4,0
   74:	00000f13          	li	t5,0
   78:	00000f93          	li	t6,0
-  7c:	00004137          	lui	sp,0x4
+  7c:	00020137          	lui	sp,0x20
   80:	00010113          	mv	sp,sp
   84:	188000ef          	jal	ra,20c <main>
   88:	00100073          	ebreak
@@ -94,7 +94,7 @@ Disassembly of section .memory:
  130:	00008067          	ret
 
 00000134 <print_dec>:
- 134:	ff010113          	addi	sp,sp,-16 # 3ff0 <end+0x3c00>
+ 134:	ff010113          	addi	sp,sp,-16 # 1fff0 <end+0x1fc00>
  138:	00410613          	addi	a2,sp,4
  13c:	00060793          	mv	a5,a2
  140:	00a00713          	li	a4,10
