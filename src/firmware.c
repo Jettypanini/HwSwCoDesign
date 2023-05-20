@@ -1,15 +1,19 @@
 #include "print.h"
 #include "ascon.h"
 
+// The cross compiler gives an error when you try to execute the code with call-by-reference, because memcpy does not exist.
+// By writing the function, it can be used.
+// This software implementation ends at 20.04 ms
+
 void main(void) {
 
-	uint8_t len1 = 6;
+    uint8_t len1 = 6;
     // digest for next message is: DBE69CB9DC29EB968ECF98EDC448A4D39B2207AEC83928CA5395B06B5EC9BBD1
     uint32_t message1[6] = {0x00010203, 0x04050607, 0x08090A0B, 0x0C0D0E0F, 0x10111213, 0x80000000};
 
-    uint8_t len2 = 8;
-    // digest for next message is: F04FDE2D56E07532DDEDC7B5F435EFBBE7AB9078F36019F0072773FFEB4431E3
-    uint32_t message2[8] = {0x00010203, 0x04050607, 0x08090A0B, 0x0C0D0E0F, 0x10111213, 0x14151617, 0x18191A1B, 0x1C1D8000};
+    uint8_t len2 = 14;
+    // digest for next message is: E7C06960B45E56B278640FCA795CEC84489910A2C71DC7AF501CF60094B5C02F
+    uint32_t message2[14] = {0x00010203, 0x04050607, 0x08090A0B, 0x0C0D0E0F, 0x10111213, 0x14151617, 0x18191A1B, 0x1C1D1E1F, 0x20212223, 0x24252627, 0x28292A2B, 0x2C2D2E2F, 0x30313233, 0x34358000};
 
     uint32_t digest[8];
 
@@ -23,7 +27,7 @@ void main(void) {
 
     ascon_hash(digest, message2, len2);
 
-    print_str("digest 1: 0x");
+    print_str("digest 2: 0x");
     for(int i=0; i<8; i++) {
         print_hex(digest[i], 8);
     }
