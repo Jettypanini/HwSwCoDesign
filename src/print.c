@@ -24,8 +24,9 @@ void print_dec(unsigned int val)
 {
 	char buffer[10];
 	char *p = buffer;
+
 	while (val || p == buffer) {
-		*(p++) = val % 10;
+		*(p++) = (unsigned char )(val % 10);
 		val = val / 10;
 	}
 	while (p != buffer) {

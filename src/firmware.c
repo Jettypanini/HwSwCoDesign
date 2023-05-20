@@ -1,13 +1,9 @@
 #include "print.h"
 #include "ascon.h"
 
-// The cross compiler gives an error when you try to execute the code with call-by-reference, because memcpy does not exist.
-// By writing the function, it can be used.
-// This software implementation ends at 20.04 ms
-
 void main(void) {
 
-    uint8_t len1 = 6;
+	uint8_t len1 = 6;
     // digest for next message is: DBE69CB9DC29EB968ECF98EDC448A4D39B2207AEC83928CA5395B06B5EC9BBD1
     uint32_t message1[6] = {0x00010203, 0x04050607, 0x08090A0B, 0x0C0D0E0F, 0x10111213, 0x80000000};
 
