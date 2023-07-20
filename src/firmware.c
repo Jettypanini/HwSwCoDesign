@@ -1,8 +1,6 @@
-#include <stdint.h>
 #include "print.h"
-#include "irq.h"
+#include "counter.h"
 
-uint32_t *irq(uint32_t *regs, uint32_t irqs);
 
 char message = '*';
 
