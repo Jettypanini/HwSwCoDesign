@@ -128,7 +128,7 @@ Disassembly of section .memory:
  444:	00000e93          	li	t4,0
  448:	00000f13          	li	t5,0
  44c:	00000f93          	li	t6,0
- 450:	00020137          	lui	sp,0x20
+ 450:	20000137          	lui	sp,0x20000
  454:	deadc1b7          	lui	gp,0xdeadc
  458:	eef18193          	addi	gp,gp,-273 # deadbeef <end+0xdeadb2bb>
  45c:	00018213          	mv	tp,gp
@@ -140,7 +140,7 @@ Disassembly of section .memory:
  46c:	00008067          	ret
 
 00000470 <irq>:
- 470:	fb010113          	addi	sp,sp,-80 # 1ffb0 <end+0x1f37c>
+ 470:	fb010113          	addi	sp,sp,-80 # 1fffffb0 <end+0x1ffff37c>
  474:	04812423          	sw	s0,72(sp)
  478:	03612823          	sw	s6,48(sp)
  47c:	03812423          	sw	s8,40(sp)
