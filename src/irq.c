@@ -11,7 +11,7 @@
 
 uint32_t *irq(uint32_t *regs, uint32_t irqs)
 {
-	// static char message = ' ';
+	static char message = ' ';
 	static unsigned int ext_irq_4_count = 0;
 	static unsigned int ext_irq_5_count = 0;
 	static unsigned int timer_irq_count = 0;
@@ -139,8 +139,8 @@ uint32_t *irq(uint32_t *regs, uint32_t irqs)
 	}
 
 	if ((irqs & (1<<8)) != 0) {
-		message = ((*((volatile unsigned int*)INPORT)) & 0xFF);
-		print_chr(message);
+		//message = ((*((volatile unsigned int*)INPORT)) & 0xFF);
+		print_chr(34);
 	}
 
 
